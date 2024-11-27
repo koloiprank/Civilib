@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
-
+@-ms-viewport{
+    width: device-width;
+  }
 :root{
     font-size: 16px;
 }
 
-
+/*Top Bar*/
 .top-bar{
-    border: 2px black solid;
+    border-bottom: 1px black solid;
 
     height: 8rem;
     width: 100%;
@@ -17,12 +19,74 @@
     align-items: center;
     gap:2rem;
     padding-left: 2rem; padding-right: 2rem;
+
 }
 .main-logo{
     width: 8rem;
+    min-width: 8rem;
 }
 .main-title{
     font-family: Lexend;
     font-weight: 800;
     font-size: 4rem;
+
+}
+.sub-title{
+    font-family: Lexend;
+    font-weight: 800;
+    
+    display:flex;
+    flex-direction: column;
+    
+    h2{
+        margin-bottom: 0.1rem;
+        margin-top: 0.1rem;
+        margin-left: -1rem;
+    }
+
+}
+.register-container{
+    margin-left: auto;
+    width: 34rem;
+
+    display: flex;
+    justify-content: center;
+    gap:6rem;
+}
+.register-button{
+    border: 2px black solid;
+    border-radius: 5rem;
+
+    height:2rem;
+    width: 7rem;
+
+    align-content: center;
+    text-align: center;
+}
+
+
+/*Navbar*/
+.navbar{
+    border-right: 1px black solid;
+
+    display:flex;
+    flex-direction: column;
+    position:fixed; top:0 ; left:0 ;
+    margin-top: 8rem;
+
+    width: 12rem;
+    height: 100vh;
+}
+
+/*Right Bar*/
+.right-bar{
+    border-left: 1px black solid;
+
+    display: flex;
+    flex-direction: column;
+    position: fixed; top: 0; right: 0;
+    margin-top: 8rem;
+
+    width: 32rem;
+    height: 100vh;
 }
