@@ -87,7 +87,7 @@
 .navbar{
     border-right: 1px red solid;
 
-    width: 18rem;
+    width: 12rem; min-width: 12rem;
 
     display:flex;
     flex-direction: column;
