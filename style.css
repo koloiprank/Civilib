@@ -4,19 +4,24 @@
     width: device-width;
   }
 :root{
-    --base-color1: #13142b;
-    --base-color2: #0C0D23;
-    --base-variant1: #191330;
-    --base-varint2: #18122E;
-    --text-color1: #ffffff;
-    --text-color2: #dadada;
-    --primary-color: #1f3244;
-    --accent-color1: #006bb3;
+    --base-color1: #1a1a1a;
+    --base-color2: #2F343B;
+    --base-variant1: #101010;
+    --base-variant2: #131313;
+    --text-color1: #e6e6e6;
+    --text-color2: #d1d1d1;
+    --element-base1: #2E2E2E;
+    --accent-color1: rgba(139, 0, 0, 0.6);
+    --border-color1: rgba(255, 255, 255, 0.1);
 
     font-size: 16px;
     font-family: Inter, sans-serif;
 
+    margin:0;
+    padding:0;
+
     color: var(--text-color2);
+
     h1,h2, a{
         color: var(--text-color1);
     }
@@ -25,18 +30,27 @@
     --base-color1: #dadcff;
     --base-color2: #d1d2e9;
     --base-variant1: #b8b0d4;
-    --base-varint2: #aca4ca;
+    --base-variant2: #aca4ca;
     --text-color1: #000000;
     --text-color2: #303030;
-    --primary-color: #7274aa;
+    --element-base1: #7274aa;
     --accent-color1: #007dd1;
+}
+.particles-bg{
+    position: absolute;
+    display: block;
+    
+    top:0;
+    left: 0;
+
+    z-index: 0;
 }
 
 
 
 /*----====TOP BAR====----*/
 .top-bar{
-    border-bottom: 2px black solid;
+    border-bottom: 1px var(--border-color1) solid;
 
     display: flex;
     align-items: center;
@@ -46,7 +60,7 @@
     position: fixed; top:0; left: 0;
     width: 100%; height: 8rem;
 
-    background: linear-gradient(to top right, var(--base-variant1), var(--base-varint2));
+    background: linear-gradient(180deg, var(--base-variant1), var(--base-variant2));
 
     z-index: 100;
 }
@@ -85,15 +99,13 @@
 }
 /*Register*/
 .register-container{
-    margin-left: auto;
-    width: 31rem;
-
     display: flex;
     justify-content: center;
+    position: fixed; right:2.5rem;
+
     gap:2rem;
 }
 .register-button{
-    border: 2px var(--text-color2) solid;
     border-radius: 5rem;
 
     height:2rem;
@@ -103,36 +115,44 @@
     text-align: center;
 
     font-weight: 600;
+
+    background: var(--element-base1);
 }
 
 
 
 /*----====MAIN CONTAINER====----*/
 .main-container{
-    border: 1px blu solid;
-
-    background: linear-gradient(to bottom right, var(--base-color1), var(--base-color2));
+    background: linear-gradient(180deg, var(--base-color1), var(--base-color2));
 
     display: flex;
     flex-direction: row;
     
-    position:fixed; top:8rem ; left:0;
+    position:fixed; top:8rem;
     width:100vw; height:100%;
+
+    margin-left: 11rem;
 }
 /*Navbar*/
 .navbar{
-    border-right: 2px black solid;    
+    border-right: 1px var(--border-color1) solid;    
 
     width: 11rem; min-width: 11rem;
+    height:100%;
 
     display:flex;
     flex-direction: column;
+
+    position: fixed; top:8rem; left:0;
 
     padding-top:1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 
-    background: linear-gradient(to bottom right, var(--base-variant1), var(--base-varint2));
+    background: linear-gradient(0deg, var(--base-variant1), var(--base-variant2));
+
+    z-index: 100;
+    overflow:auto;
 }
 .navbar-cat{
     display: flex;
@@ -162,7 +182,7 @@
     gap:0.3rem;
 }
 .nav-button{
-    background: var(--primary-color);
+    background: var(--element-base1);
 
     display: flex;
     align-items: center;
@@ -172,7 +192,7 @@
 
     text-decoration: none;
 
-    border-radius: 1.25rem;
+    border-radius: 1.5rem;
 
     transition: 300ms ease;
 
@@ -188,24 +208,30 @@
 }
 .nav-button:hover{
     background: var(--accent-color1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1.5px) scale(1.01);
+    cursor: pointer;
+}
+.nav-button:active{
+    transform: translateY(0.5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .navbar-theme-switch{
-    margin-top: 12rem;
-    
+    position: inherit; bottom: 0;
+    margin-bottom: 4rem;
+
     height: 2rem; width: 5rem;
     align-self: center;
-
 }
 /*Content Container*/
 .content-container{
     margin:2rem; margin-top: 1.5rem;
     width:100%;
+
+    background: none;
 }
 /*Subconent Container*/
 .subcontent-container{
-    border-left: 2px black solid;
-
-    background: rgba(0,0,0,0.1);
-
-    width: 42rem;
+    border-left: 1px var(--border-color1) solid;
+    width: 48rem;
 }

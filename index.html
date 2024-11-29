@@ -7,10 +7,22 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Babel Tower</title>
+        <title>Civilib</title>
         <meta name="description" content="Arknights all-in-one Workshop for all ">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+
+        <script>
+            window.onload = function(){
+                Particles.init({
+                    selector: ".particles-bg",
+                    maxParticles: 140,
+                    color: "#8F8F8E",
+                    speed: 0.08,
+                    sizeVariations: 2
+                });
+            };
+        </script>
     </head>
     
     <body>
@@ -35,7 +47,7 @@
                 </g>
             </svg>
             
-            <h1 class="main-title">BABEL TOWER</h1>
+            <h1 class="main-title">CIVILIB</h1>
             <div class="sub-title">
                 <h2>Unofficial Arknights Library</h2>
                 <h2>v1.0</h2>
@@ -47,8 +59,7 @@
             </div>
         </div>
 
-        <div class="main-container">
-            <nav class="navbar">
+        <nav class="navbar">
                 <div class="navbar-nav">
                     <a class="nav-button" href="/index.html">
                         <img src="/assets/svgs/Home.svg" alt="Home Button">
@@ -100,16 +111,21 @@
                     </a>
                 </div>
 
-                <script type="text/javascript" src="assets/scripts/themeswitch.js" defer></script>
                 <button id="theme-switch" class="navbar-theme-switch">
                 </button>
-            </nav>
+        </nav>
 
+        <div class="main-container">
             <div class="content-container">
             </div>
 
             <div class="subcontent-container">
             </div>
         </div>
+
+        <canvas class="particles-bg"></canvas>
+        <script src="assets/scripts/particles.min.js"></script>
+        <script src="assets/scripts/particles.js"></script>
+        <script type="text/javascript" src="assets/scripts/themeswitch.js" defer></script>
     </body>
 </html>
