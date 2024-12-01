@@ -34,7 +34,7 @@
     --text-color1: #333333;
     --text-color2: #666666;
     --element-base1: #FFFFFF;
-    --accent-color1: #D9534F;
+    --accent-color1: #ca1c16;
     --border-color1: rgba(50, 50, 50, 0.2);
 }
 .particles-bg{
@@ -139,7 +139,7 @@
     border-right: 1px var(--border-color1) solid;    
 
     width: 11rem; min-width: 11rem;
-    height:100%;
+    height:100vh;
 
     display:flex;
     flex-direction: column;
@@ -199,6 +199,7 @@
 
     svg{
         width: 2.35rem;
+        max-height: 2.35rem;
         margin-left: 0.5rem;
         fill: var(--text-color1)
     }

@@ -9,44 +9,44 @@ const infoBubble = document.getElementById("theme-switch-info")
 
 /*Enable/Disable functions*/
 const enableLightmode = () => {
-    document.body.classList.add("lightmode")
+    document.body.classList.add("lightmode");
     
-    themeSlide.style.transform = "translateX(-50%)"
-    themeSlide.style.background = "#FFFFFF"
-    infoBubble.innerText = "Light theme"
+    themeSlide.style.transform = "translateX(-50%)";
+    themeSlide.style.background = "#FFFFFF";
+    infoBubble.innerText = "Light theme";
     
-    localStorage.setItem("lightmode", "true")
-}
+    localStorage.setItem("lightmode", "true");
+};
 const enableDarkmode = () => {
-    document.body.classList.remove("lightmode")
+    document.body.classList.remove("lightmode");
     
-    themeSlide.style.transform = "translateX(0)"
-    themeSlide.style.background = "#0C0A00"
-    infoBubble.innerText = "Dark theme"
+    themeSlide.style.transform = "translateX(0)";
+    themeSlide.style.background = "#0C0A00";
+    infoBubble.innerText = "Dark theme";
 
-    localStorage.setItem("lightmode", "false")
-}
+    localStorage.setItem("lightmode", "false");
+};
 
 
 /*Automatic theme change on web entry*/
-if(lightmode === "true") enableLightmode()
+if(lightmode === "true") enableLightmode();
 
 
 /*Change on click*/
 themeSwitch.addEventListener("click", () => {
-    lightmode = localStorage.getItem("lightmode")
+    lightmode = localStorage.getItem("lightmode");
     
     if (lightmode === "false"){
-        enableLightmode()
+        enableLightmode();
     }
     else if (lightmode === "true"){
-        enableDarkmode()
-    }
-})
+        enableDarkmode();
+    };
+});
 /*Hover bubble activation*/
 themeSwitch.addEventListener("mouseover", () => {
-    infoBubble.style.opacity = 1
-})
+    infoBubble.style.opacity = 1;
+});
 themeSwitch.addEventListener("mouseout", () => {
-    infoBubble.style.opacity = 0
-})
+    infoBubble.style.opacity = 0;
+});
