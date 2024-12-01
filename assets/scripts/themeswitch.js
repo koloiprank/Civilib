@@ -44,9 +44,9 @@ themeSwitch.addEventListener("click", () => {
     }
 })
 /*Hover bubble activation*/
-themeSwitch.addEventListener("mouseover", function() {
+themeSwitch.addEventListener("mouseover", () => {
     infoBubble.style.opacity = 1
 })
-themeSwitch.addEventListener("mouseout", function() {
+themeSwitch.addEventListener("mouseout", () => {
     infoBubble.style.opacity = 0
 })

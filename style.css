@@ -153,7 +153,7 @@
     background: linear-gradient(0deg, var(--base-variant1), var(--base-variant2));
 
     z-index: 100;
-    overflow:auto;
+    overflow:hidden;
 }
 .navbar-cat{
     display: flex;
@@ -189,7 +189,7 @@
     align-items: center;
     gap:0.3rem;
 
-    height: 3rem;
+    height: 2.5rem;
 
     text-decoration: none;
 
@@ -197,14 +197,15 @@
 
     transition: 300ms ease;
 
-    img{
-        width: 2.5rem;
+    svg{
+        width: 2.35rem;
         margin-left: 0.5rem;
+        fill: var(--text-color1)
     }
     p{
         color: var(--text-color1);
         font-weight: 700;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 }
 .nav-button:hover{
