@@ -35,7 +35,7 @@
     --text-color2: #666666;
     --element-base1: #FFFFFF;
     --accent-color1: #ca1c16;
-    --border-color1: rgba(50, 50, 50, 0.2);
+    --border-color1: rgba(50, 50, 50, 0.6);
 }
 .particles-bg{
     position: absolute;
@@ -49,8 +49,9 @@
 
 
 
-/*----====TOP BAR====----*/
-.top-bar{
+
+/*----====HEADER====----*/
+.header{
     border-bottom: 1px var(--border-color1) solid;
 
     display: flex;
@@ -63,7 +64,7 @@
 
     background: linear-gradient(180deg, var(--base-variant1), var(--base-variant2));
 
-    z-index: 1;
+    z-index: 2;
 }
 /*Logo*/
 .main-logo{
@@ -122,20 +123,13 @@
 
 
 
-/*----====MAIN CONTAINER====----*/
-.main-container{
-    background: linear-gradient(180deg, var(--base-color1), var(--base-color2));
 
-    display: flex;
-    flex-direction: row;
-    
-    position:fixed; top:8rem;
-    width:100vw; height:100%;
-
-    margin-left: 11rem;
-}
-/*Navbar*/
+/*----====NAVBAR====----*/
 .navbar{
+    display: flex;
+    flex-direction: column;
+    gap:0.4rem;
+
     border-right: 1px var(--border-color1) solid;    
 
     width: 11rem; min-width: 11rem;
@@ -152,37 +146,53 @@
 
     background: linear-gradient(0deg, var(--base-variant1), var(--base-variant2));
 
-    z-index: 100;
-    overflow:hidden;
+    z-index: 2;
 }
-.navbar-cat{
+.navbar-secondary{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     
-    font-weight: 700;
-    text-align: center;
+    height: 100vh;
 
-    margin-top: 1rem;
-    margin-bottom: 0.3rem;
+    position: fixed; top: 14.75rem; left: 13rem;
 
-    color: var(--text-color1);
-}
-.navbar-cat::before,
-.navbar-cat::after{
-    content: "";
-    
-    width: 100%;
-    margin:.25rem;
-    
-    border-bottom: 2px solid black;
-    border-color: var(--text-color1);
+    z-index: 2;
 }
 .navbar-nav{
     display: flex;
     flex-direction: column;
-    gap:0.3rem;
+    gap:0.4rem;
 }
-.nav-button{
+.navbar-deployable{
+    opacity: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap:0.4rem;
+
+    padding: 0.4rem;
+
+    max-height:1.75rem;
+    
+    border: 1px var(--border-color1) solid;
+    background: linear-gradient(0deg, var(--base-variant1), var(--base-variant2));
+
+    overflow: hidden;
+
+    transition: opacity 200ms ease, max-height 250ms ease;
+
+    h2{
+        text-align: center;
+        margin:0;
+    }
+    a p{
+        font-size: 1rem;
+    }
+}
+#media-nav{
+    margin-top: 9.25rem;
+}
+.navbar-button{
     background: var(--element-base1);
 
     display: flex;
@@ -193,6 +203,7 @@
 
     text-decoration: none;
 
+    border: none;
     border-radius: 1.5rem;
 
     transition: 300ms ease;
@@ -206,18 +217,41 @@
     p{
         color: var(--text-color1);
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1.45rem;
     }
 }
-.nav-button:hover{
+.navbar-button:hover{
     background: var(--accent-color1);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-1.5px) scale(1.01);
     cursor: pointer;
 }
-.nav-button:active{
+.navbar-button:active{
     transform: translateY(0.5px);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar-cat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-color1);
+
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+.navbar-cat::before,
+.navbar-cat::after{
+    content: "";
+    
+    width: 100%;
+    margin:.25rem;
+    
+    border-bottom: 2px solid black;
+    border-color: var(--text-color1);
 }
 /*Theme switch*/
 .info-bubble{
@@ -269,7 +303,6 @@
     width: 10rem;
     height: 100%;
     
-    z-index: 1;
     transition: transform 300ms ease;
 
     display: flex;
@@ -314,7 +347,6 @@
 }
 #theme-switch-content{
     position: relative;
-    z-index: 2;
 
     color: var(--text-color1);
     background: none;
@@ -337,13 +369,27 @@
 }
 
 
-/*Content Container*/
-.content-container{
+
+
+/*----====MAIN====----*/
+.main{
+    background: linear-gradient(180deg, var(--base-color1), var(--base-color2));
+
+    display: flex;
+    flex-direction: row;
+    
+    position:fixed; top:8rem;
+    width:100vw; height:100%;
+
+    margin-left: 11rem;
+
+    z-index: 0;
+}
+.maincontent-container{
     margin:2rem; margin-top: 1.5rem;
     width:100%;
 }
-/*Subconent Container*/
-.subcontent-container{
+.sidecontent-container{
     border-left: 1px var(--border-color1) solid;
     width: 48rem;
 }

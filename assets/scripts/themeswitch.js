@@ -1,14 +1,12 @@
-let lightmode = localStorage.getItem("lightmode")
-const themeSwitch = document.getElementById("theme-switch-button")
+let lightmode = localStorage.getItem("lightmode");
+const themeSwitch = document.getElementById("theme-switch-button");
 
-const themeSlide = document.getElementById("theme-switch-slide")
-const slideDark = document.getElementById("slide-dark")
-const slideLight = document.getElementById("slide-light")
-const infoBubble = document.getElementById("theme-switch-info")
+const themeSlide = document.getElementById("theme-switch-slide");
+const infoBubble = document.getElementById("theme-switch-info");
 
 
 /*Enable/Disable functions*/
-const enableLightmode = () => {
+const enableLightmode = ()=>{
     document.body.classList.add("lightmode");
     
     themeSlide.style.transform = "translateX(-50%)";
@@ -17,7 +15,7 @@ const enableLightmode = () => {
     
     localStorage.setItem("lightmode", "true");
 };
-const enableDarkmode = () => {
+const enableDarkmode = ()=>{
     document.body.classList.remove("lightmode");
     
     themeSlide.style.transform = "translateX(0)";
@@ -29,11 +27,13 @@ const enableDarkmode = () => {
 
 
 /*Automatic theme change on web entry*/
-if(lightmode === "true") enableLightmode();
+if(lightmode === "true"){
+    enableLightmode();
+};
 
 
 /*Change on click*/
-themeSwitch.addEventListener("click", () => {
+themeSwitch.addEventListener("click", ()=>{
     lightmode = localStorage.getItem("lightmode");
     
     if (lightmode === "false"){
@@ -44,9 +44,9 @@ themeSwitch.addEventListener("click", () => {
     };
 });
 /*Hover bubble activation*/
-themeSwitch.addEventListener("mouseover", () => {
+themeSwitch.addEventListener("mouseover", ()=>{
     infoBubble.style.opacity = 1;
 });
-themeSwitch.addEventListener("mouseout", () => {
+themeSwitch.addEventListener("mouseout", ()=>{
     infoBubble.style.opacity = 0;
 });
