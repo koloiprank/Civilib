@@ -45,8 +45,10 @@ themeSwitch.addEventListener("click", ()=>{
 });
 /*Hover bubble activation*/
 themeSwitch.addEventListener("mouseover", ()=>{
+    infoBubble.style.visibility = "visible";
     infoBubble.style.opacity = 1;
 });
 themeSwitch.addEventListener("mouseout", ()=>{
     infoBubble.style.opacity = 0;
+    infoBubble.style.visibility = "hidden";
 });

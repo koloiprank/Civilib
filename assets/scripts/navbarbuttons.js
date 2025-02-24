@@ -1,84 +1,58 @@
-/*Arknights Button*/ 
-const arknightsButton = document.getElementById("arknights-button");
+/*Arknights*/ 
 const arknightsNav = document.getElementById("arknights-nav");
 let arknightsExpanded = false;
-
-const expandArknightsNav = ()=>{
-    arknightsExpanded = true;
-    arknightsNav.style.opacity = "1";
-
-    setTimeout(()=>{arknightsNav.style.maxHeight = "100%"}, 250);
-};
-const contractArknightsNav = ()=>{
-    arknightsExpanded = false;
-    arknightsNav.style.maxHeight = "1.75rem";
-
-    setTimeout(()=>{arknightsNav.style.opacity = "0"}, 300);
-};
-
-arknightsButton.addEventListener("click", ()=>{
-    if (!arknightsExpanded) {
-        expandArknightsNav();
-    }
-    else {
-        contractArknightsNav();
-    };
-});
-
-
-/*Endfield Button*/ 
-const endfieldButton = document.getElementById("endfield-button");
+/*Endfield*/ 
 const endfieldNav = document.getElementById("endfield-nav");
 let endfieldExpanded = false;
-
-const expandEndfieldNav = ()=>{
-    endfieldExpanded = true;
-    endfieldNav.style.opacity = "1";
-
-    setTimeout(()=>{endfieldNav.style.maxHeight = "100%"}, 250);
-};
-const contractEndfieldNav = ()=>{
-    endfieldExpanded = false;
-    endfieldNav.style.maxHeight = "1.75rem";
-
-    setTimeout(()=>{endfieldNav.style.opacity = "0"}, 300);
-};
-
-endfieldButton.addEventListener("click", ()=>{
-    if (!endfieldExpanded) {
-        expandEndfieldNav();
-    }
-    else {
-        contractEndfieldNav();
-    };
-});
-
-
-/*Media Button*/
-const mediaButton = document.getElementById("media-button");
+/*Media*/ 
 const mediaNav = document.getElementById("media-nav");
 let mediaExpanded = false;
-
-const expandMediaNav = ()=>{
-    mediaExpanded = true;
-    mediaNav.style.opacity = "1";
-
-    setTimeout(()=>{mediaNav.style.maxHeight = "100%"}, 250)
-}
-const contractMediaNav = ()=>{
-    mediaExpanded = false;
-    mediaNav.style.maxHeight = "1.75rem";
-
-    setTimeout(()=>{mediaNav.style.opacity = "0"}, 300);
+/*Object array*/
+buttonsArray = {
+    "arknights-button": {"nav": arknightsNav, "expanded": arknightsExpanded}, 
+    "endfield-button": {"nav": endfieldNav, "expanded": endfieldExpanded},
+    "media-button": {"nav": mediaNav, "expanded": mediaExpanded}
 };
 
-mediaButton.addEventListener("click", ()=>{
-    if (!mediaExpanded) {
-        expandMediaNav();
-    }
-    else {
-        contractMediaNav();
-    };
+
+/*Button click*/
+function expandNav(buttonName){
+    let nav = buttonsArray[buttonName]["nav"];
+    buttonsArray[buttonName]["expanded"] = true;
+    
+    nav.style.opacity = "1";
+    nav.style.visibility = "visible";
+    nav.style.transform = "translateX(12.5rem)";
+    setTimeout(()=>{nav.style.maxHeight="100%"}, 250);
+}
+function contractNav(buttonName){    
+    let nav = buttonsArray[buttonName]["nav"];
+    const originalTransition = nav.style.transition;
+    buttonsArray[buttonName]["expanded"] = false;
+    
+    nav.style.maxHeight = "1.75rem";
+    
+    setTimeout(()=>{nav.style.transform = "translateX(0)";}, 250);
+    setTimeout(()=>{
+        nav.style.transition = "none";
+        
+        nav.style.opacity = "0";
+        nav.style.visibility = "hidden";
+
+        nav.style.transition = originalTransition;
+    }, 350)
+};
+document.addEventListener("click", (event)=>{
+    const target = event.target; 
+    const targetParent = target.parentNode;
+    
+    const buttonName = target.id in buttonsArray ? target.id :
+    targetParent.id in buttonsArray ? targetParent.id :
+    undefined;
+    if (!buttonName) return;
+    
+    const isExpanded = buttonsArray[buttonName]["expanded"];
+    isExpanded ? contractNav(buttonName) : expandNav(buttonName);
 });
 
 
@@ -86,19 +60,22 @@ mediaButton.addEventListener("click", ()=>{
 document.addEventListener("click", (event)=>{
     const arknightsTarget = document.querySelector("#arknights-nav");
     const arknightsButtonTarget = document.querySelector("#arknights-button")
-    if (!(arknightsTarget.contains(event.target) || arknightsButtonTarget.contains(event.target))) {
-        contractArknightsNav();
-    };
-   
+    
     const endfieldTarget = document.querySelector("#endfield-nav")
     const endfieldButtonTarget = document.querySelector("#endfield-button")
-    if (!(endfieldTarget.contains(event.target) || endfieldButtonTarget.contains(event.target))) {
-        contractEndfieldNav();
-    };
-
+    
     const mediaTarget = document.querySelector("#media-nav")
     const mediaButtonTarget = document.querySelector("#media-button")
+    
+    if (!(arknightsTarget.contains(event.target) || arknightsButtonTarget.contains(event.target))) {
+        contractNav("arknights-button");
+    };
+
+    if (!(endfieldTarget.contains(event.target) || endfieldButtonTarget.contains(event.target))) {
+        contractNav("endfield-button");
+    };
+
     if (!(mediaTarget.contains(event.target) || mediaButtonTarget.contains(event.target))) {
-        contractMediaNav();
+        contractNav("media-button");
     };
 });
