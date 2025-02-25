@@ -8,7 +8,7 @@ let endfieldExpanded = false;
 const mediaNav = document.getElementById("media-nav");
 let mediaExpanded = false;
 /*Object array*/
-buttonsArray = {
+const buttonsArray = {
     "arknights-button": {"nav": arknightsNav, "expanded": arknightsExpanded}, 
     "endfield-button": {"nav": endfieldNav, "expanded": endfieldExpanded},
     "media-button": {"nav": mediaNav, "expanded": mediaExpanded}
@@ -16,31 +16,38 @@ buttonsArray = {
 
 
 /*Button click*/
+function resetInitialPosition(buttonName){
+    const nav = buttonsArray[buttonName]["nav"];
+    const originalTransition = nav.style.transition;
+    
+    nav.style.transition = "none";
+    
+    nav.style.opacity = "0";
+    nav.style.visibility = "hidden";
+    nav.style.transform = "translateX(0)";
+    nav.style.maxHeight = "1.5rem";
+    
+    nav.style.transition = originalTransition;
+};
 function expandNav(buttonName){
-    let nav = buttonsArray[buttonName]["nav"];
+    resetInitialPosition(buttonName);
+
+    const nav = buttonsArray[buttonName]["nav"];
     buttonsArray[buttonName]["expanded"] = true;
     
     nav.style.opacity = "1";
     nav.style.visibility = "visible";
     nav.style.transform = "translateX(12.5rem)";
-    setTimeout(()=>{nav.style.maxHeight="100%"}, 250);
-}
+    setTimeout(()=>{nav.style.maxHeight="100%"}, 230);
+};
 function contractNav(buttonName){    
-    let nav = buttonsArray[buttonName]["nav"];
+    const nav = buttonsArray[buttonName]["nav"];
     const originalTransition = nav.style.transition;
     buttonsArray[buttonName]["expanded"] = false;
     
-    nav.style.maxHeight = "1.75rem";
-    
-    setTimeout(()=>{nav.style.transform = "translateX(0)";}, 250);
-    setTimeout(()=>{
-        nav.style.transition = "none";
-        
-        nav.style.opacity = "0";
-        nav.style.visibility = "hidden";
-
-        nav.style.transition = originalTransition;
-    }, 350)
+    nav.style.maxHeight = "1.5rem";
+    setTimeout(()=>{nav.style.transform = "translateX(0)";}, 230);
+    setTimeout(()=>{resetInitialPosition(buttonName);}, 350);
 };
 document.addEventListener("click", (event)=>{
     const target = event.target; 
