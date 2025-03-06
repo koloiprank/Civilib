@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
     <head>
         <title>Civilib</title>
@@ -12,7 +12,7 @@
         <meta name="description" content="Arknights lore library">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./assets/style.css">
         
         <script type="text/javascript">
             window.onload = ()=>{
@@ -61,7 +61,7 @@
         </header>
 
         <nav class="navbar">
-            <button class="navbar-button" id="home-button">
+            <button class="btn-navbar" id="home-button">
                 <svg
                     version="1.1"
                     id="svg1"
@@ -84,14 +84,14 @@
 
             <span class="navbar-cat">Games</span>
             <div class="navbar-deployable">
-                <button class="navbar-button" id="arknights-button">
+                <button class="btn-navbar" id="arknights-button">
                     <p>Arknights</p>
                 </button>
                 <div class="navbar-deployable-content" id="arknights-nav">
                     <h2>ARKNIGHTS</h2>
                     
                     <span class="navbar-cat">Story</span>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -111,7 +111,7 @@
                         </svg>
                         <p>Main Story</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -131,7 +131,7 @@
                         </svg>
                         <p>Side Story</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -152,7 +152,7 @@
                         </svg>
                         <p>Intermezzi</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -176,7 +176,7 @@
                     </a>
 
                     <span class="navbar-cat">Characters</span>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             style= "height: 2rem;"
                             version="1.1"
@@ -197,7 +197,7 @@
                         </svg>
                         <p>Files</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -220,7 +220,7 @@
                     </a>
 
                     <span class="navbar-cat">Terra</span>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -241,7 +241,7 @@
                         </svg>
                         <p>Map</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <svg
                             version="1.1"
                             id="svg1"
@@ -266,7 +266,7 @@
                 </div>
             </div>
             <div class="navbar-deployable">
-                <button class="navbar-button" id="endfield-button">
+                <button class="btn-navbar" id="endfield-button">
                     <p>Endfield</p>
                 </button>
                 <div class="navbar-deployable-content" id="endfield-nav">
@@ -277,39 +277,39 @@
             </div>
             
             <span class="navbar-cat">Lore info</span>
-            <button class="navbar-button" id="glossary-button">
+            <button class="btn-navbar" id="glossary-button">
                 <p>Glossary</p>
             </button>
-            <button class="navbar-button" id="timeline-button">
+            <button class="btn-navbar" id="timeline-button">
                 <p>Timeline</p>
             </button>
             <div class="navbar-deployable">
-                <button class="navbar-button" id="media-button">
+                <button class="btn-navbar" id="media-button">
                     <p>Media</p>
                 </button>
                 <div class="navbar-deployable-content" id="media-nav">
                     <h2>MEDIA</h2>
                     
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <p>MSR</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <p>Comics</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <p>Manga</p>
                     </a>
-                    <a class="navbar-button">
+                    <a class="btn-navbar">
                         <p>Anime</p>
                     </a>
                 </div>
             </div>
 
             <span class="navbar-cat">About</span>
-            <button class="navbar-button" id="contact-button">
+            <button class="btn-navbar" id="contact-button">
                 <p>Contact</p>
             </button>
-            <button class="navbar-button" id="credits-button">
+            <button class="btn-navbar" id="credits-button">
                 <p>Credits</p>
             </button>
 
@@ -336,18 +336,22 @@
         </nav>
 
         <main class="main">
-            <div class="maincontent-container">
+            <div class="container-maincontent">
+                <div id="container-map">
+                </div>
             </div>
 
-            <div class="sidecontent-container">
+            <div class="container-sidecontent">
             </div>
 
             <canvas class="particles-bg"></canvas>
         </main>
 
         
+
         <script type="text/javascript" src="./assets/scripts/particles.js"></script>
         <script type="text/javascript" src="./assets/scripts/themeswitch.js"></script>
         <script type="text/javascript" src="./assets/scripts/navbarbuttons.js"></script>
+        <script type="module" src="./assets/scripts/terramap.ts"></script>
     </body>
 </html>

@@ -1,6 +1,8 @@
 let lightmode = localStorage.getItem("lightmode");
+if (!lightmode){
+    localStorage.setItem("lightmode", "false")
+}
 const themeSwitch = document.getElementById("theme-switch-button");
-
 const themeSlide = document.getElementById("theme-switch-slide");
 const infoBubble = document.getElementById("theme-switch-info");
 
@@ -35,6 +37,7 @@ if(lightmode === "true"){
 /*Change on click*/
 themeSwitch.addEventListener("click", ()=>{
     lightmode = localStorage.getItem("lightmode");
+    console.log(lightmode)
     
     if (lightmode === "false"){
         enableLightmode();

@@ -38,16 +38,16 @@ function expandNav(buttonName){
     nav.style.opacity = "1";
     nav.style.visibility = "visible";
     nav.style.transform = "translateX(12.5rem)";
-    setTimeout(()=>{nav.style.maxHeight="100%"}, 230);
+    setTimeout(()=>{nav.style.maxHeight="100%"}, 200);
 };
 function contractNav(buttonName){    
     const nav = buttonsArray[buttonName]["nav"];
-    const originalTransition = nav.style.transition;
     buttonsArray[buttonName]["expanded"] = false;
     
     nav.style.maxHeight = "1.5rem";
-    setTimeout(()=>{nav.style.transform = "translateX(0)";}, 230);
-    setTimeout(()=>{resetInitialPosition(buttonName);}, 350);
+    setTimeout(()=>{nav.style.transform = "translateX(0)";}, 200);
+    
+    setTimeout(()=>{resetInitialPosition(buttonName);}, 220);
 };
 document.addEventListener("click", (event)=>{
     const target = event.target; 
