@@ -439,7 +439,6 @@
 }
 #map-aegir:hover{
     transform: translateY(-1rem);
-    
     cursor: pointer;
     
     fill: #2c7bbb;
