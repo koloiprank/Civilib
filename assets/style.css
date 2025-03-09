@@ -397,18 +397,54 @@
 
     z-index: 1;
 }
-#container-map{
+.container-map{
     display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width:100%;
-
-    svg{
-        overflow: visible;
-    }
+    flex-direction: row;
 }
+/* \/\/\/\/ MAP \/\/\/\/ */
+.map-svgs svg{
+    margin-left: 2rem;
+
+    width: 32vw;
+    height: auto;
+    min-width: 30rem;
+    min-height: auto;
+
+    background: #2673B0;
+}
+.map-svgs svg path{
+    transition: all 150ms ease;
+}
+#map-sami:hover,
+#map-ursus:hover,
+#map-higashi:hover,
+#map-kazimierz:hover,
+#map-bolivar:hover,
+#map-columbia:hover,
+#map-kjerag:hover,
+#map-siesta:hover,
+#map-minos:hover,
+#map-kazdel:hover,
+#map-yan:hover,
+#map-victoria:hover,
+#map-leithanien:hover,
+#map-laterano:hover,
+#map-siracusa:hover,
+#map-rimbilliton:hover,
+#map-sargon:hover,
+#map-iberia:hover
+{
+    transform: translateY(-1rem);
+    cursor: pointer;
+}
+#map-aegir:hover{
+    transform: translateY(-1rem);
+    
+    cursor: pointer;
+    
+    fill: #2c7bbb;
+}
+/* /\/\/\/\ MAP /\/\/\/\ */
 .container-sidecontent{
     border-left: 1px var(--border-color1) solid;
     
